@@ -1,0 +1,10 @@
+# Scala Metals and BSP
+.bloop
+.bsp
+.metals
+# IDEs
+.idea
+.vscode
+# other
+.scala-build
+*.log
