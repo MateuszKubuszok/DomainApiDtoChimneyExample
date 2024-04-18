@@ -24,8 +24,10 @@ final class InvoiceProgram private (transactor: H2Transactor[IO], clock: Clock) 
     for {
       invoice <- decode[Invoice](invoiceJson).left.map(_.getMessage)
       newInvoice = invoice.copy(
+        // name chaned here as well
         `creation-date` = invoice.`creation-date`.orElse(Some(Instant.now(clock)))
       )
+      // hmm, this could happen in domain model, not here
       _ <- Either.cond(newInvoice.price > 0, (), "Price cannot be negative")
       _ <- {
         import newInvoice.*

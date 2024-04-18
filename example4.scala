@@ -4,7 +4,7 @@ import cats.implicits.*
 import cats.effect.*, cats.effect.unsafe.implicits.*
 import doobie.*, doobie.implicits.*, doobie.h2.*
 import io.circe.*, io.circe.generic.auto.*, io.circe.parser.*, io.circe.syntax.*
-import io.scalaland.chimney.{PartialTransformer, Transformer}, io.scalaland.chimney.dsl.*, io.scalaland.chimney.partial.syntax.*
+import io.scalaland.chimney.{PartialTransformer, Transformer}, io.scalaland.chimney.dsl.*
 import java.util.UUID, java.time.{Clock, Instant}
 
 given Transformer[Instant, String] = _.toString

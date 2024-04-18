@@ -4,7 +4,7 @@ import cats.implicits.*
 import cats.effect.*, cats.effect.unsafe.implicits.*
 import doobie.*, doobie.implicits.*, doobie.h2.*
 import io.circe.*, io.circe.generic.auto.*, io.circe.parser.*, io.circe.syntax.*
-//import io.scalaland.chimney.dsl.*
+//import io.scalaland.chimney.{PartialTransformer, Transformer}, io.scalaland.chimney.dsl.*
 import java.util.UUID, java.time.{Clock, Instant}
 
 // domain model
@@ -40,8 +40,7 @@ case class ApiInvoice(
 ) {
 
   def toDomain(creationDate: => Instant): Either[String, Invoice] =
-    //Invoice.parse(id, buyer, seller, price, `creation-date`.getOrElse(creationDate))
-    Invoice.parse(id, seller, buyer, price, `creation-date`.getOrElse(creationDate))
+    Invoice.parse(id, buyer, seller, price, `creation-date`.getOrElse(creationDate))
 }
 object ApiInvoice {
 
