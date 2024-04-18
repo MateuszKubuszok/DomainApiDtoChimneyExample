@@ -5,7 +5,7 @@ import java.time.{Clock, Instant, ZoneId}
 
 class InvoiceProgramSpec extends munit.FunSuite {
 
-  test"invoices are saved and restored") {
+  test("invoices are saved and restored") {
     InvoiceProgram
       .resource(Clock.fixed(Instant.parse("2024-04-18T00:00:00Z"), ZoneId.of("UTC")))
       .use { invoiceProgram =>
